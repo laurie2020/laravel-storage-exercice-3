@@ -106,7 +106,7 @@ class UserController extends Controller
         $user->photo = $request->file('photo')->hashName();
         $user->save();
         $request->file('photo')->storePublicly('img', 'public');
-        return redirect()->route('photos.index')->with('message', "Vous avez bien modifié la photo: " . $user->nom);
+        return redirect()->route('users.index')->with('message', "Vous avez bien modifié l'utilisateur: " . $user->nom);
     }
 
     /**
@@ -120,5 +120,10 @@ class UserController extends Controller
         Storage::disk('public')->delete('img/' . $user->image);
         $user->delete();
         return redirect()->back()->with('message', "Vous avez supprimé l'utilisateur "  . $user->nom);
+    }
+    public function download($id)
+    {
+        $user = User::find($id);
+        return Storage::disk('public')->download('img/' . $user->lien);
     }
 }

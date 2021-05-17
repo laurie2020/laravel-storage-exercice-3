@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Galerie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalerieController extends Controller
 {
@@ -26,7 +27,7 @@ class GalerieController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.galerie.create');
     }
 
     /**
@@ -35,9 +36,20 @@ class GalerieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Galerie $galerie, Request $request)
     {
-        //
+        $request->validate([
+            'nom' => "required",
+            'image' => "required",
+            'description' => "max: 225|required",
+        ]);
+        $galerie = new Galerie;
+        $galerie->nom = $request->nom;
+        $galerie->image = $request->prenom;
+        $galerie->description = $request->description;
+        $galerie->save();
+        $request->file('image')->storePublicly('img', 'public');
+        return redirect()->route('galeries.index')>with("message",  " Votre Galerie  a été créer avec l'id  " . $galerie->id);
     }
 
     /**
@@ -48,7 +60,7 @@ class GalerieController extends Controller
      */
     public function show(Galerie $galerie)
     {
-        //
+        return view('backoffice.galerie.show', compact('galerie'));
     }
 
     /**
@@ -59,7 +71,7 @@ class GalerieController extends Controller
      */
     public function edit(Galerie $galerie)
     {
-        //
+        return view('backoffice.galerie.edit', compact('galerie'));
     }
 
     /**
@@ -71,7 +83,6 @@ class GalerieController extends Controller
      */
     public function update(Request $request, Galerie $galerie)
     {
-        //
     }
 
     /**
@@ -82,6 +93,12 @@ class GalerieController extends Controller
      */
     public function destroy(Galerie $galerie)
     {
-        //
+        Storage::disk('public')->delete('img/' . $galerie->image);
+        $galerie->delete();
+        return redirect()->back()->with('message', "Vous avez supprimé l'utilisateur "  . $galerie->nom);
+    }
+    public function download($id){
+        $galerie = Galerie::find($id);
+        return Storage::disk('public')->download('img/' . $galerie->image);
     }
 }
