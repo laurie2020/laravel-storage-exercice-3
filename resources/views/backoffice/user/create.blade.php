@@ -4,14 +4,15 @@
     @include('partials.nav')
     <section>
         <h1 class="text-center user-title">Create User</h1>
-        <form class="w-75 mx-auto mb-5">
+        <form class="w-75 mx-auto mb-5" action={{ route('users.store') }} method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="mb-3">
               <label for="nom" class="form-label user-label">Nom:</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" name="nom">
+              <input type="text" class="form-control" id="exampleInputEmail1" name="nom">
             </div>
             <div class="mb-3">
                 <label for="nom" class="form-label user-label">Prenom:</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="prenom">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="prenom">
             </div>
             <div class="mb-3">
                 <label for="age" class="form-label user-label">Age:</label>
