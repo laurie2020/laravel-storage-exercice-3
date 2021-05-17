@@ -7,11 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Fontawesome
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
-@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 @import "./fonts";
 
@@ -115,4 +114,13 @@ home-title {
     background-color: $purple;
     color: white;
     padding: 10px;
+}
+
+i {
+    font-size: 7rem;
+    text-align: center;
+}
+
+.car-title {
+    color: $pink;
 }

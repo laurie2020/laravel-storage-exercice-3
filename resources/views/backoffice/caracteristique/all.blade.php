@@ -9,7 +9,9 @@
 
             @foreach ($caracteristiques as $caracteristique)
             <div class="card m-3" style="width: 18rem;">
-                <i class={{ $caracteristique->icone }}></i>
+                <div>
+                    <i class="{{ $caracteristique->icone }} me-auto ms-auto d-block mt-3"></i>
+                </div> 
                 <div class="card-body">
                   <h5 class="card-title"><a href="/caracteristique/{{ $caracteristique->id }}" class="text-decoration-none"><b>{{ $caracteristique->nom }} {{ $caracteristique->prenom }}</b></a></h5>
                 </div>
