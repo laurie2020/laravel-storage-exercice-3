@@ -25,7 +25,7 @@ class CaracteristiqueController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.caracteristique.create');
     }
 
     /**
@@ -34,9 +34,20 @@ class CaracteristiqueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Caracteristique $caracteristique ,Request $request)
     {
-        //
+        $request->validate([
+            'icone' => "required",
+            'chiffre' => "required",
+            'nom' => "required",
+        ]);
+
+        $caracteristique = new Caracteristique;
+        $caracteristique->icone = $request->icone;
+        $caracteristique->chiffre = $request->chiffre;
+        $caracteristique->nom = $request->nom;
+        $caracteristique->save();
+        return redirect()->route('caracteristique.index')->with("message",  " Vous avez créer une  caracteristique   qui a comme id  " . $caracteristique->id);
     }
 
     /**
@@ -47,7 +58,7 @@ class CaracteristiqueController extends Controller
      */
     public function show(Caracteristique $caracteristique)
     {
-        //
+        return view('backoffice.caracteristique.create', compact('caracteristique'));
     }
 
     /**
@@ -58,7 +69,7 @@ class CaracteristiqueController extends Controller
      */
     public function edit(Caracteristique $caracteristique)
     {
-        //
+        return view('backoffice.caracteristique.edit', compact('caracteristique'));
     }
 
     /**
@@ -70,7 +81,17 @@ class CaracteristiqueController extends Controller
      */
     public function update(Request $request, Caracteristique $caracteristique)
     {
-        //
+        $request->validate([
+            'icone' => "required",
+            'chiffre' => "required",
+            'nom' => "required",
+        ]);
+
+        $caracteristique->icone = $request->icone;
+        $caracteristique->chiffre = $request->chiffre;
+        $caracteristique->nom = $request->nom;
+        $caracteristique->save();
+        return redirect()->route('caracteristique.index')->with('message', "Vous avez bien modifié les Caracteristique de  : " . $caracteristique->nom);
     }
 
     /**
@@ -81,6 +102,7 @@ class CaracteristiqueController extends Controller
      */
     public function destroy(Caracteristique $caracteristique)
     {
-        //
+        $caracteristique->delete();
+        return redirect()->back()->with('message', "Le Caracteritique" . $caracteristique->nom . "a été supprimer");
     }
 }

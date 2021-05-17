@@ -124,6 +124,6 @@ class UserController extends Controller
     public function download($id)
     {
         $user = User::find($id);
-        return Storage::disk('public')->download('img/' . $user->lien);
+        return Storage::disk('public')->download('img/' . $user->photo);
     }
 }

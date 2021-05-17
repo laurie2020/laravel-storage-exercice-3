@@ -45,11 +45,11 @@ class GalerieController extends Controller
         ]);
         $galerie = new Galerie;
         $galerie->nom = $request->nom;
-        $galerie->image = $request->prenom;
+        $galerie->image = $request->file('image')->hashName();
         $galerie->description = $request->description;
         $galerie->save();
         $request->file('image')->storePublicly('img', 'public');
-        return redirect()->route('galeries.index')>with("message",  " Votre Galerie  a été créer avec l'id  " . $galerie->id);
+        return redirect()->route('galeries.index') > with("message",  " Votre Galerie  a été créer avec l'id  " . $galerie->id);
     }
 
     /**
@@ -83,6 +83,18 @@ class GalerieController extends Controller
      */
     public function update(Request $request, Galerie $galerie)
     {
+        $request->validate([
+            'nom' => "required",
+            'image' => "required",
+            'description' => "max: 225|required",
+        ]);
+        Storage::disk('public')->delete('img/' . $galerie->image);
+        $galerie->nom = $request->nom;
+        $galerie->image = $request->file('image')->hashName();
+        $galerie->description = $request->description;
+        $galerie->save();
+        $request->file('image')->storePublicly('img', 'public');
+        return redirect()->route('galeries.index')->with('message', "Vous avez bien modifié la Galerie: " . $galerie->nom);;
     }
 
     /**
@@ -97,7 +109,8 @@ class GalerieController extends Controller
         $galerie->delete();
         return redirect()->back()->with('message', "Vous avez supprimé l'utilisateur "  . $galerie->nom);
     }
-    public function download($id){
+    public function download($id)
+    {
         $galerie = Galerie::find($id);
         return Storage::disk('public')->download('img/' . $galerie->image);
     }
