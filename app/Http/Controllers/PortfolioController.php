@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -26,7 +27,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.portfolio.create');
     }
 
     /**
@@ -35,9 +36,22 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Portfolio $portfolio, Request $request)
     {
-        //
+        $request->validate([
+            'nom' => "required",
+            'image' => "required",
+            'categorie' => "required",
+            'description' => "max: 200|required",
+        ]);
+        $portfolio = new Portfolio;
+        $portfolio->nom = $request->nom;
+        $portfolio->image = $request->file('image')->hashName();
+        $portfolio->categorie = $request->categorie;
+        $portfolio->description = $request->description;
+        $portfolio->save();
+        $request->file('image')->storePublicly('img', 'public');
+        return redirect()->route('portfolios.index')->with('message', "Vous avez bien créer le portfolio de : " . $portfolio->nom);
     }
 
     /**
@@ -48,7 +62,7 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        //
+        return view('backoffice.portfolio.show', compact('portfolio'));
     }
 
     /**
@@ -59,7 +73,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        //
+        return view('backoffice.portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -71,17 +85,32 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        $request->validate([
+            'nom' => "required",
+            'image' => "required",
+            'categorie' => "required",
+            'description' => "max: 200|required",
+        ]);
+        Storage::disk('public')->delete('img/' . $portfolio->image);
+        $portfolio->nom = $request->nom;
+        $portfolio->image = $request->file('image')->hashName();
+        $portfolio->categorie = $request->categorie;
+        $portfolio->description = $request->description;
+        $portfolio->save();
+        $request->file('image')->storePublicly('img', 'public');
+        return redirect()->route('portfolios.index')->with('message', "Vous avez bien modifié le portfolio de : " . $portfolio->nom);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Portfolio  $portfolio
+     * @param  \App\Models\Portfolio  $portfolio 
      * @return \Illuminate\Http\Response
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+        Storage::disk('public')->delete('img/' . $portfolio->image);
+        $portfolio->delete();
+        return redirect()->back()->with('message', "Vous avez supprimé le portfolio de "  . $portfolio->nom);
     }
 }

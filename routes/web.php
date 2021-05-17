@@ -24,15 +24,21 @@ Route::get('/', function () {
 
 // Users
 Route::resource('/users', UserController::class);
+Route::get('/users/{id}/download', [UserController::class, 'download']);
 
 // Services
 Route::resource('/services', ServiceController::class);
+Route::get('/services/{id}/download', [ServiceController::class, 'download']);
 
 // Portfolios
 Route::resource('/portfolios', PortfolioController::class);
+Route::get('/portfolios/{id}/download', [PortfolioController::class, 'download']);
 
 // Galeries
 Route::resource('/galeries', GalerieController::class);
+Route::get('/galeries/{id}/download', [GalerieController::class, 'download']);
 
 // Caractéristique
 Route::resource('/caracteristiques', CaracteristiqueController::class);
+
+Route::get('/caracteristiques/{id}/download', [CaracteristiqueController::class, 'download']);

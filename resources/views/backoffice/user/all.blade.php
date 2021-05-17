@@ -21,8 +21,8 @@
                   <li class="list-group-item"><b>Updated at:</b> {{ $user->updated_at }}</li>
                 </ul>
                 <div class="card-body d-flex flex-column" >
-                  <a href="#" class="btn btn-success" class="download" style="color:white">Download</a>
-                  <a href="users/{{ $user->id }}/edit" class="btn btn-warning" class="edit" style="color:white;">Edit</a>
+                  <a href="/users/{{ $user->id }}/download" class="btn btn-success" class="download" style="color:white">Download</a>
+                  <a href="/users/{{ $user->id }}/edit" class="btn btn-warning" class="edit" style="color:white;">Edit</a>
                   <form action="">
                       <button class="btn btn-danger w-100" class="delete" style="background-color: #e3342f; color:white;">Delete</button>
                   </form>

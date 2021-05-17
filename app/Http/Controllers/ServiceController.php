@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -35,9 +36,19 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Service $service, Request $request)
     {
-        //
+        $request->validate([
+            'icone' => "required",
+            'titre' => "required",
+            'description' => "required",
+        ]);
+        $service = new Service;
+        $service->icone = $request->icone;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->save();
+        return redirect()->route('services.index')->with("message",  " Votre user  a été créer avec l'id  " . $service->id);
     }
 
     /**
@@ -48,7 +59,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('backoffice.service.show', compact('service'));
     }
 
     /**
@@ -59,7 +70,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('backoffice.service.edit', compact('service'));
     }
 
     /**
@@ -71,7 +82,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'icone' => "required",
+            'titre' => "required",
+            'description' => "required",
+        ]);
+        $service->icone = $request->icone;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->save();
+        return redirect()->route('services.index')->with('message', "Vous avez bien modifié la photo: " . $service->nom);;
     }
 
     /**
@@ -82,6 +102,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->back()->with('message', "Vous avez supprimé l'utilisateur avec l'id "  . $service->id);
     }
 }
