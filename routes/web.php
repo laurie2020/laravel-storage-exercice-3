@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CaracteristiqueController;
+use App\Http\Controllers\GalerieController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +24,15 @@ Route::get('/', function () {
 
 // Users
 Route::resource('/users', UserController::class);
+
+// Services
+Route::resource('/services', ServiceController::class);
+
+// Portfolios
+Route::resource('/portfolios', PortfolioController::class);
+
+// Galeries
+Route::resource('/galeries', GalerieController::class);
+
+// Caractéristique
+Route::resource('/caracteristiques', CaracteristiqueController::class);
