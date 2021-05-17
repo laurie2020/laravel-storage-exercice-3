@@ -17051,3 +17051,19 @@ home-title {
 .user-title {
   color: #9561e2;
 }
+
+.user-label {
+  color: #9561e2;
+  font-size: 1.5rem;
+}
+
+.form-control {
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.user-btn {
+  background-color: #9561e2;
+  color: white;
+  padding: 10px;
+}
