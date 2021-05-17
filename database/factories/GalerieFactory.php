@@ -23,7 +23,7 @@ class GalerieFactory extends Factory
     {
         return [
             'nom' => $this->faker->name(),
-            'image' => $this->faker->imageUrl(150, 150),
+            'image'=>$this->faker->image('public/img', 200, 200, 'cats', false),
             'description' => $this->faker->realText()
         ];
     }

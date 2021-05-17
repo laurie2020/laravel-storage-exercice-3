@@ -14,7 +14,9 @@ class GalerieController extends Controller
      */
     public function index()
     {
-        //
+        $galeries = Galerie::all();
+
+        return view('backoffice.galerie.all', compact('galeries'));
     }
 
     /**

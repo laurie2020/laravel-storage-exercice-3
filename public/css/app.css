@@ -16962,7 +16962,6 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Free", Open Sans;
   font-weight: 501;
 }
-<<<<<<< HEAD
 
 #home {
   text-decoration: none;
@@ -17035,10 +17034,20 @@ ul {
   padding: 15px;
 }
 
-h1, .h1 {
+home-title {
   color: #38c172;
   margin-top: 200px;
   font-size: 5rem;
 }
-=======
->>>>>>> 3b14da4375e8a2cf27e2b65d5bc91dc6af1ccd19
+
+.list-group-item {
+  font-size: 1rem;
+}
+
+.list-group {
+  padding: 0;
+}
+
+.user-title {
+  color: #9561e2;
+}

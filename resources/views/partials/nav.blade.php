@@ -3,7 +3,7 @@
       <a class="nav-link active" aria-current="page" href={{ route('home') }} id="home">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" id="users">Users</a>
+      <a class="nav-link" href={{ route('users.index') }} id="users">Users</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#" id="caracteristiques">Caracteristiques</a>

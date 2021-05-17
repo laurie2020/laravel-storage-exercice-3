@@ -84,8 +84,22 @@ ul {
     padding: 15px;
 }
 
-h1 {
+home-title {
     color: $green;
     margin-top: 200px;
     font-size: 5rem;
 }
+
+.list-group-item {
+    font-size: 1rem;
+    
+}
+
+.list-group {
+    padding: 0;
+}
+
+.user-title {
+    color: $purple;
+}
+

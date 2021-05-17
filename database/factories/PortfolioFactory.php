@@ -23,7 +23,7 @@ class PortfolioFactory extends Factory
     {
         return [
             'nom' => $this->faker->name(),
-            'image' => $this->faker->imageUrl(150, 150),
+            'image'=>$this->faker->image('public/img', 200, 200, 'cats', false),
             'categorie' => $this->faker->randomElement($array = array('Vieux', 'Jeune', 'Demi-vieux')),
             'description' => $this->faker->realText()
         ];
