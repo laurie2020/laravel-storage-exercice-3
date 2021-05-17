@@ -6,7 +6,7 @@
       <a class="nav-link" href={{ route('users.index') }} id="users">Users</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" id="caracteristiques">Caracteristiques</a>
+      <a class="nav-link" href={{ route('caracteristiques.index') }} id="caracteristiques">Caracteristiques</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#" id="galeries">Galeries</a>

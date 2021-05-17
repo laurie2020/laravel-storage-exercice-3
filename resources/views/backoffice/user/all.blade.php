@@ -23,8 +23,10 @@
                 <div class="card-body d-flex flex-column" >
                   <a href="/users/{{ $user->id }}/download" class="btn btn-success" class="download" style="color:white">Download</a>
                   <a href="/users/{{ $user->id }}/edit" class="btn btn-warning" class="edit" style="color:white;">Edit</a>
-                  <form action="">
-                      <button class="btn btn-danger w-100" class="delete" style="background-color: #e3342f; color:white;">Delete</button>
+                  <form action="/users/{{ $user->id }}" method="POST">
+                    @csrf
+                    @method('delete')
+                      <button type="submit" class="btn btn-danger w-100" class="delete" style="background-color: #e3342f; color:white;">Delete</button>
                   </form>
                   
                 </div>
