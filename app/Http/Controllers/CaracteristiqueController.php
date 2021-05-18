@@ -47,7 +47,7 @@ class CaracteristiqueController extends Controller
         $caracteristique->chiffre = $request->chiffre;
         $caracteristique->nom = $request->nom;
         $caracteristique->save();
-        return redirect()->route('caracteristique.index')->with("message",  " Vous avez créer une  caracteristique   qui a comme id  " . $caracteristique->id);
+        return redirect()->route('caracteristiques.index')->with("message",  " Vous avez créer une  caracteristique   qui a comme id  " . $caracteristique->id);
     }
 
     /**
@@ -91,7 +91,7 @@ class CaracteristiqueController extends Controller
         $caracteristique->chiffre = $request->chiffre;
         $caracteristique->nom = $request->nom;
         $caracteristique->save();
-        return redirect()->route('caracteristique.index')->with('message', "Vous avez bien modifié les Caracteristique de  : " . $caracteristique->nom);
+        return redirect()->route('caracteristiques.index')->with('message', "Vous avez bien modifié les Caracteristique de  : " . $caracteristique->nom);
     }
 
     /**

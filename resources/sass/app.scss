@@ -83,7 +83,7 @@ ul {
     padding: 15px;
 }
 
-home-title {
+.home-title {
     color: $green;
     margin-top: 200px;
     font-size: 5rem;
@@ -110,6 +110,10 @@ home-title {
     height: 50px;
     font-size: 1.5rem;
 }
+.form-select {
+    height: 50px;
+    font-size: 1.5rem;
+}
 .user-btn {
     background-color: $purple;
     color: white;
@@ -123,4 +127,15 @@ i {
 
 .car-title {
     color: $pink;
+}
+.car-btn {
+    background-color: $pink;
+    color: white;
+    padding: 10px;
+}
+.galerie-title {
+    color: $red;
+}
+.galerie-btn {
+    background-color: $red;
 }

@@ -17034,7 +17034,7 @@ ul {
   padding: 15px;
 }
 
-home-title {
+.home-title {
   color: #38c172;
   margin-top: 200px;
   font-size: 5rem;
@@ -17062,6 +17062,11 @@ home-title {
   font-size: 1.5rem;
 }
 
+.form-select {
+  height: 50px;
+  font-size: 1.5rem;
+}
+
 .user-btn {
   background-color: #9561e2;
   color: white;
@@ -17075,4 +17080,18 @@ i {
 
 .car-title {
   color: #f66d9b;
+}
+
+.car-btn {
+  background-color: #f66d9b;
+  color: white;
+  padding: 10px;
+}
+
+.galerie-title {
+  color: #e3342f;
+}
+
+.galerie-btn {
+  background-color: #e3342f;
 }

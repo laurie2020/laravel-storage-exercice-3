@@ -16,13 +16,11 @@
                   <h5 class="card-title"><a href="/caracteristique/{{ $caracteristique->id }}" class="text-decoration-none"><b>{{ $caracteristique->nom }} {{ $caracteristique->prenom }}</b></a></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><b>Email:</b>  {{ $caracteristique->email }}</li>
-                  <li class="list-group-item"><b>Password:</b>  {{ $caracteristique->password }}</li>
-                  <li class="list-group-item"><b>Created at:</b> {{ $caracteristique->created_at }}</li>
-                  <li class="list-group-item"><b>Updated at:</b> {{ $caracteristique->updated_at }}</li>
+                  <li class="list-group-item"><b>Id:</b>  {{ $caracteristique->id }}</li>
+                  <li class="list-group-item"><b>Chiffre:</b>  {{ $caracteristique->chiffre }}</li>
                 </ul>
                 <div class="card-body d-flex flex-column" >
-                  <a href="/caracteristiques/{{ $caracteristique->id }}/download" class="btn btn-success" class="download" style="color:white">Download</a>
+                  <a href="/caracteristiques/{{ $caracteristique->id }}/download" class="btn btn-success disabled" class="download" style="color:white">Download</a>
                   <a href="/caracteristiques/{{ $caracteristique->id }}/edit" class="btn btn-warning" class="edit" style="color:white;">Edit</a>
                   <form action="/caracteristiques/{{ $caracteristique->id }}" method="POST">
                     @csrf

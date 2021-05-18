@@ -15,6 +15,7 @@
                   <p class="card-text">{{ $user->age }} ans</p>
                 </div>
                 <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>Id:</b>  {{ $user->id }}</li>
                   <li class="list-group-item"><b>Email:</b>  {{ $user->email }}</li>
                   <li class="list-group-item"><b>Password:</b>  {{ $user->password }}</li>
                   <li class="list-group-item"><b>Created at:</b> {{ $user->created_at }}</li>
