@@ -6,9 +6,9 @@
     <h1 class="text-center user-title">Create User</h1>
     <form class="w-75 mx-auto mb-5" action={{ route('users.store') }} method="POST" enctype="multipart/form-data">
         @csrf
-        <ul class="bg-danger">
+        <ul class="text-center w-100">
             @foreach ($errors->all() as $message)
-            <li class="text-white">{{$message}}</li>
+            <li class="text-danger">{{$message}}</li>
             @endforeach
         </ul>
         <div class="mb-3">
