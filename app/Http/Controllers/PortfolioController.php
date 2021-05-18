@@ -113,4 +113,9 @@ class PortfolioController extends Controller
         $portfolio->delete();
         return redirect()->back()->with('message', "Vous avez supprimé le portfolio de "  . $portfolio->nom);
     }
+    public function download($id)
+    {
+        $portfolio = Portfolio::find($id);
+        return Storage::disk('public')->download('img/' . $portfolio->image);
+    }
 }
