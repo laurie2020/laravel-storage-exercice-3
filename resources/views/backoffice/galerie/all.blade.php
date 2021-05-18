@@ -30,5 +30,6 @@
             </div>
             @endforeach
         </div>
+        <div class="d-flex justtify-content-center">{{ $galeries->links() }}</div>
     </section>
 @endsection

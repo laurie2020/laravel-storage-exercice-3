@@ -34,6 +34,6 @@
             </div>
             @endforeach
         </div>
-        <div class="d-flex just">{{$users->links()}}</div>
+        <div class="d-flex justtify-content-center">{{$users->links()}}</div>
     </section>
 @endsection

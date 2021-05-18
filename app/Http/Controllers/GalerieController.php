@@ -49,7 +49,7 @@ class GalerieController extends Controller
         $galerie->description = $request->description;
         $galerie->save();
         $request->file('image')->storePublicly('img', 'public');
-        return redirect()->route('galeries.index') > with("message",  " Votre Galerie  a été créer avec l'id  " . $galerie->id);
+        return redirect()->route('galeries.index') -> with("message",  " Votre Galerie  a été créer avec l'id  " . $galerie->id);
     }
 
     /**

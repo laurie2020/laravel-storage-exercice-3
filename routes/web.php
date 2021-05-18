@@ -35,7 +35,8 @@ Route::resource('/portfolios', PortfolioController::class);
 Route::get('/portfolios/{id}/download', [PortfolioController::class, 'download']);
 
 // Galeries
-Route::resource('/galeries', GalerieController::class);
+// Route::resource('/galeries', GalerieController::class);
+Route::resource("/galeries", GalerieController::class)->parameters(['galeries' => 'galerie']);
 Route::get('/galeries/{id}/download', [GalerieController::class, 'download']);
 
 // Caractéristique
