@@ -4,6 +4,11 @@
     @include('partials.nav')
     <section>
         <h1 class="text-center car-title">Edit Caracteristique</h1>
+        <ul class="w-75 mx-auto">
+            @foreach ($errors->all() as $message)
+                <li class="alert alert-danger">{{ $message }}</li>
+            @endforeach
+        </ul>
         <form class="w-75 mx-auto mb-5" action="/caracteristiques/{{ $caracteristique->id }}" method="POST">
             @csrf
             @method('put')

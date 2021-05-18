@@ -22,7 +22,7 @@ class ServiceFactory extends Factory
     public function definition()
     {
         return [
-            'icone' => $this->faker->randomElement($array = array("fa-facebook-f", 'fab fa-twitter', 'fa-youtube', 'fab fa-amazon', 'fab fa-google', 'fab fa-firefox', 'fab fa-safari', "fab fa-wifi", "fab fa-internet-explorer", 'fab fa-chrome')),
+            'icone' => $this->faker->randomElement($array=array('fas fa-snowman', 'fas fa-toilet-paper', 'fas fa-hat-wizard', 'fas fa-hippo', 'fas fa-glass-martini-alt', 'fas fa-poo', 'fas fa-hat-cowboy-side', 'fas fa-laptop-code', 'fas fa-car-crash', 'fas fa-undo')),
             'titre' => $this->faker->jobTitle,
             'description' => $this->faker->realText(),
         ];

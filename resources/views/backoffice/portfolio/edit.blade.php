@@ -4,7 +4,7 @@
     @include('partials.nav')
     <section>
         <h1 class="text-center portfolio-title">Edit Portfolio</h1>
-        <ul>
+        <<ul class="w-75 mx-auto">
             @foreach ($errors->all() as $message)
                 <li class="alert alert-danger">{{ $message }}</li>
             @endforeach

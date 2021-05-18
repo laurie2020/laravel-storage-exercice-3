@@ -3,9 +3,9 @@
 @section('content')
 @include('partials.nav')
 <section>
-    <ul class="alert alert-danger">
+    <ul class="w-75 mx-auto">
         @foreach ($errors->all() as $message)
-        <li class="text-danger">{{$message}}</li>
+            <li class="alert alert-danger">{{ $message }}</li>
         @endforeach
     </ul>
     <h1 class="text-center galerie-title">Create Galerie</h1>

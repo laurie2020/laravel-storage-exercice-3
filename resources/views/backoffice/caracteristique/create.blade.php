@@ -4,9 +4,9 @@
 @include('partials.nav')
 <section>
     <h1 class="text-center car-title">Create Caracteristique</h1>
-    <ul>
+    <ul class="w-75 mx-auto">
         @foreach ($errors->all() as $message)
-        <li class="alert alert-danger">{{$message}}</li>
+            <li class="alert alert-danger">{{ $message }}</li>
         @endforeach
     </ul>
     <form class="w-75 mx-auto mb-5" action={{ route('caracteristiques.store') }} method="POST">

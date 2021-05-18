@@ -5,7 +5,7 @@
 <section>
     <h1 class="text-center portfolio-title">Create Portfolio</h1>
     <form class="w-75 mx-auto mb-5" action={{ route('portfolios.store') }} method="POST" enctype="multipart/form-data">
-        <ul>
+        <ul class="w-75 mx-auto">
             @foreach ($errors->all() as $message)
                 <li class="alert alert-danger">{{ $message }}</li>
             @endforeach

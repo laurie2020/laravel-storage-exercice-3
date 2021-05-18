@@ -17109,3 +17109,8 @@ i {
   color: white;
   padding: 10px;
 }
+
+.service-btn {
+  background-color: #ffed4a;
+  color: white;
+}
