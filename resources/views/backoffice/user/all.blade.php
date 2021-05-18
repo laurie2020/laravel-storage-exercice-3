@@ -34,5 +34,6 @@
             </div>
             @endforeach
         </div>
+        <div class="d-flex just">{{$users->links()}}</div>
     </section>
 @endsection

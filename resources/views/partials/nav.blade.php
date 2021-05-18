@@ -12,9 +12,9 @@
         <a class="nav-link" href={{ route('galeries.index') }} id="galeries">Galeries</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="#" id="portfolios">Portfolios</a>
+    <a class="nav-link" href={{ route('portfolios.index') }} id="portfolios">Portfolios</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="#" id="services">Services</a>
+    <a class="nav-link" href={{ route('services.index') }} id="services">Services</a>
     </li>
 </ul>

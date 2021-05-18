@@ -32,5 +32,6 @@
             </div>
             @endforeach
         </div>
+        <div class="d-flex justify-content-center">{{$caracteristiques->links()}}</div>
     </section>
 @endsection

@@ -15,7 +15,7 @@ class GalerieController extends Controller
      */
     public function index()
     {
-        $galeries = Galerie::all();
+        $galeries = Galerie::paginate(8);
 
         return view('backoffice.galerie.all', compact('galeries'));
     }
