@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.nav')
-    <section>
+<section class="d-flex">
+
+    @include('partials.nav2')
+    <section class="w-100">
         <h1 class="text-center service-title">Edit Services</h1>
         <ul class="w-75 mx-auto">
             @foreach ($errors->all() as $message)
@@ -40,4 +42,5 @@
             <button type="submit" class="btn w-100 service-btn">Submit</button>
         </form>
     </section>
+</section>
 @endsection
