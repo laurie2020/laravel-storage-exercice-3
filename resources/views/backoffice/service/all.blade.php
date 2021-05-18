@@ -5,6 +5,9 @@
 <section>
     <h1 class="text-center service-title">Services</h1>
     <p class="text-center"><a href={{ route('services.create') }} class="btn btn-primary text-light">Create</a></p>
+    @if (session("message"))
+    <div class="alert alert-success text-center mx-5 mt-3">{{ session("message") }}</div>
+    @endif
     <div class="d-flex flex-wrap container justify-content-between">
         @foreach ($services as $service)
         <div class="card border-warning mb-3" style="max-width: 18rem;">
